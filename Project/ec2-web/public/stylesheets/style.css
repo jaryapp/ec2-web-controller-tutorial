@@ -1,0 +1,32 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+ul {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+ul > li {
+  list-style: none;
+  text-align: center;
+  width: 24%;
+  border: 1px solid rgb(233, 233, 233);
+  box-sizing: border-box;
+  border-radius: 10px;
+  margin: 10px 0.5%;
+  padding: 10px;
+}
+
+form {
+  padding: 20px;
+  display: inline-flex;
+  flex-direction: column;
+}
+
+form > input,
+select,
+button {
+  margin-top: 10px;
+}

@@ -1,0 +1,16 @@
+<!-- project/ec2-web/views/region.ejs -->
+<html>
+  <head>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+  </head>
+  <body>
+    <ul>
+      <% for(const region of regions){ %>
+      <li>
+        <div><%= region.Endpoint%></div>
+        <div><%= region.RegionName%></div>
+      </li>
+      <% } %>
+    </ul>
+  </body>
+</html>

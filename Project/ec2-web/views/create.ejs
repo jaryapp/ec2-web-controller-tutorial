@@ -1,0 +1,27 @@
+<!-- project/ec2-web/views/create.ejs -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+  </head>
+  <body>
+    <h1>인스턴스 만들기</h1>
+    <form action="/instance" method="post">
+      <input type="text" name="InstanceName" placeholder="인스턴스명" />
+      <select name="ImageId">
+        <% for(const image of imageList){ %>
+        <option value="<%= image.ImageId %>"><%= image.Name %></option>
+        <% } %>
+      </select>
+      <select name="SecurityGroupId">
+        <% for(const security of securityGroupList){ %>
+        <option value="<%= security.GroupId %>">
+          <%= security.GroupName %>
+        </option>
+        <% } %>
+      </select>
+      <button type="submit">전송</button>
+    </form>
+  </body>
+  <script></script>
+</html>

@@ -1,0 +1,53 @@
+<!-- project/ec2-web/views/index.ejs -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+  </head>
+  <body>
+    <ul>
+      <% for(const instance of instanceList){ %>
+      <li>
+        <div><%= instance.Tags[0].Value%></div>
+        <div><%= instance.State.Name%></div>
+        <div><%= instance.SecurityGroups[0].GroupName%></div>
+        <div><%= instance.InstanceId%></div>
+        <button onClick="start('<%= instance.InstanceId %>')">시작</button>
+        <button onClick="stop('<%= instance.InstanceId %>')">중지</button>
+        <button onClick="reboot('<%= instance.InstanceId %>')">재부팅</button>
+      </li>
+      <% } %>
+    </ul>
+  </body>
+  <script>
+    function start(InstanceId) {
+      fetch("/instance/start", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ InstanceId }),
+      }).then((response) => response.json());
+    }
+
+    function stop(InstanceId) {
+      fetch("/instance/stop", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ InstanceId }),
+      }).then((response) => response.json());
+    }
+
+    function reboot(InstanceId) {
+      fetch("/instance/reboot", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ InstanceId }),
+      }).then((response) => response.json());
+    }
+  </script>
+</html>

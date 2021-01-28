@@ -1,0 +1,18 @@
+<!-- project/ec2-web/views/zone.ejs -->
+<html>
+  <head>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+  </head>
+  <body>
+    <ul>
+      <% for(const zone of zones){ %>
+      <li>
+        <div><%= zone.RegionName%></div>
+        <div><%= zone.ZoneName%></div>
+        <div><%= zone.ZoneId%></div>
+        <div><%= zone.State%></div>
+      </li>
+      <% } %>
+    </ul>
+  </body>
+</html>
